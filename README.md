@@ -1,5 +1,3 @@
-
-
  
 
 
@@ -10,23 +8,21 @@
 
 # &nbsp;&nbsp;&nbsp;&nbsp;I. 소개
 
-## &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1. 어떻게 만들 것인가?](#1.-어떻게-만들-것인가?)
-
-
+## &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1. 어떻게 만들 것인가?](#1-어떻게-만들-것인가?)
 
 # &nbsp;&nbsp;&nbsp;&nbsp;II. 빌드를 위한 준비 과정
 
-## &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 호스트 시스템 준비하기
+## &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2. 호스트 시스템 준비하기](#2-호스트-시스템-준비하기)
 
-#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;호스트 시스템 요구사항
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[호스트 시스템 요구사항](#호스트-시스템-요구사항)
 
-#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;새로운 파티션 생성
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[새로운 파티션 생성](#새로운-파티션-생성)
 
-#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;파티션에 파일시스템 생성하기
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[파티션에 파일시스템 생성하기](#파티션에-파일시스템-생성하기)
 
-#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;환경변수 설정
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[환경변수 설정](#환경변수-설정)
 
-#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;새로운 파티션 마운트 하기
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[새로운 파티션 마운트 하기](#새로운-파티션-마운트-하기)
 
 ## &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. 필요한 패키지와 패치 파일
 
@@ -102,7 +98,7 @@
 
 
 
-## 어떻게 만들 것인가?
+## 1. 어떻게 만들 것인가?
 
 
 
@@ -1344,7 +1340,7 @@ apt의 디펜던시는 다음과 같이 구성되어 있습니다.
 
 apt설치에 앞서 5가지 디펜던시를 모두 설치해주어야 합니다.
 
-<img src="/Users/jinwoobae/Desktop/스크린샷 2020-12-29 오전 12.05.57.png" alt="스크린샷 2020-12-29 오전 12.05.57" style="zoom: 33%;" />
+<img src="/Users/jinwoobae/Desktop/스크린샷 2020-12-29 오전 12.05.57.png" alt="스크린샷 2020-12-29 오전 12.05.57" style="zoom: 33%;" />
 
 
 
@@ -1352,7 +1348,7 @@ apt설치에 앞서 5가지 디펜던시를 모두 설치해주어야 합니다.
 
 첫번째 디펜던시인 debian-archive-keyring설치를 시작합니다. 하지만 여기서 문제가 발생합니다. circular dependency문제가 존재하기 때문입니다. libc6은 libgcc1에 의존하고 libgcc1은 multiarch-support에 의존합니다. 또한 multiarch-support는 libc6에 의존합니다.
 
-![스크린샷 2020-12-18 오후 6.10.12](/Users/jinwoobae/Library/Application Support/typora-user-images/스크린샷 2020-12-18 오후 6.10.12.png)
+![스크린샷 2020-12-18 오후 6.10.12](/Users/jinwoobae/Library/Application Support/typora-user-images/스크린샷 2020-12-18 오후 6.10.12.png)
 
 
 
@@ -1388,7 +1384,7 @@ dpkg -i (location_of_multiarch)
 
 하지만 여기서 다음과 같은 에러가 발생할 수도 있습니다.
 
-![스크린샷 2020-12-21 오후 12.06.48](/Users/jinwoobae/Desktop/스크린샷 2020-12-21 오후 12.06.48.png)
+![스크린샷 2020-12-21 오후 12.06.48](/Users/jinwoobae/Desktop/스크린샷 2020-12-21 오후 12.06.48.png)
 
 이런 경우가 발생했을때에는 먼저 logout으로 chroot environment를 나가줍니다.
 
@@ -1404,7 +1400,7 @@ logout
 
 vi로 파일에 들어갔다면 libgcc1 패키지부분에
 
-<img src="/Users/jinwoobae/Desktop/스크린샷 2020-12-22 오후 8.12.08.png" alt="스크린샷 2020-12-22 오후 8.12.08" style="zoom:50%;" />
+<img src="/Users/jinwoobae/Desktop/스크린샷 2020-12-22 오후 8.12.08.png" alt="스크린샷 2020-12-22 오후 8.12.08" style="zoom:50%;" />
 
 
 
@@ -1426,7 +1422,7 @@ Version: 1:4.9.2-10+deb8u2
 
 
 
-![스크린샷 2020-12-22 오후 8.22.29](/Users/jinwoobae/Desktop/스크린샷 2020-12-22 오후 8.22.29.png)
+![스크린샷 2020-12-22 오후 8.22.29](/Users/jinwoobae/Desktop/스크린샷 2020-12-22 오후 8.22.29.png)
 
 해당 패키지에 부족한 내용을 채워넣으면 위 그림과 같이 나오게 됩니다.
 
@@ -1905,7 +1901,7 @@ set root=(hd1,1)
 
 menuentry "Debian from Scratch GNU/Linux" {
 
-​    linux  /boot/vmlinuz-dfs root=/dev/sdb1 ro
+    linux  /boot/vmlinuz-dfs root=/dev/sdb1 ro
 
 }
 
@@ -1937,7 +1933,7 @@ shutdown -r now
 
 재부팅이 돼서 다음과 같은 화면이 나오면 정상입니다. (현재 사용자가 root밖에 없으므로 root로 로그인해줍니다.)
 
-![스크린샷 2020-12-28 오후 11.06.14](/Users/jinwoobae/Desktop/스크린샷 2020-12-28 오후 11.06.14.png)
+![스크린샷 2020-12-28 오후 11.06.14](/Users/jinwoobae/Desktop/스크린샷 2020-12-28 오후 11.06.14.png)
 
 
 
@@ -1947,7 +1943,7 @@ shutdown -r now
 
 위 커맨드를 쳐서 본인의 디바이스가 가지고 있는 네트워크 인터페이스 카드를 확인합니다.
 
-![스크린샷 2020-12-28 오후 11.09.48](/Users/jinwoobae/Library/Application Support/typora-user-images/스크린샷 2020-12-28 오후 11.09.48.png)
+![스크린샷 2020-12-28 오후 11.09.48](/Users/jinwoobae/Library/Application Support/typora-user-images/스크린샷 2020-12-28 오후 11.09.48.png)
 
 위 같은 경우는 eth0인 것을 확인할 수 있습니다.
 
@@ -1958,4 +1954,3 @@ shutdown -r now
 
 
 ## THE END
-
